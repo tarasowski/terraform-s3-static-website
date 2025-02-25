@@ -74,6 +74,10 @@ resource "aws_s3_object" "index" {
   source       = "./index.html" # Update the path where your index.html is stored
   content_type = "text/html"
   acl          = "public-read"
+  depends_on = [
+    aws_s3_bucket_ownership_controls.site,
+    aws_s3_bucket_public_access_block.site
+  ]
 }
 
 resource "aws_s3_object" "error" {
@@ -82,4 +86,8 @@ resource "aws_s3_object" "error" {
   source       = "./error.html" # Update the path where your error.html is stored
   content_type = "text/html"
   acl          = "public-read"
+  depends_on = [
+    aws_s3_bucket_ownership_controls.site,
+    aws_s3_bucket_public_access_block.site
+  ]
 }

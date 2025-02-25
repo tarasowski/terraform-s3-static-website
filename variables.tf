@@ -1,5 +1,5 @@
 variable "site_domain" {
-  default     = "www.tarasowski.com"
+  default     = "dimi-react-app-codepipeline"
   description = "Add the website name here"
 }
 
